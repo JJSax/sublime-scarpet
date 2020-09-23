@@ -15,11 +15,11 @@ contexts:
       scope: variable.language.sc
     #builtins
     - match: \b(abs|acos|acosh|acot|all|asin|asinh|atan|atan2|atanh|bool|break|call|ceil|c_for|continue|copy|cos|cosh|cot|coth|csc|csch|deg|delete|exit|fact|filter|first|floor|for|get|has|hash_code|if|import|join|keys|l|length|log|log10|log1p|loop|lower|m|mandelbrot|map|max|min|not|number|outer|pairs|perlin|print|profile_expr|put|rad|rand|range|reduce|relu|replace|replace_first|return|round|sec|sech|simplex|sin|sinh|sleep|slice|sort|sort_key|synchronize|system_variable_get|system_variable_set|split|sqrt|str|tan|tanh|task|task_completed|task_count|task_dock|task_join|task_thread|task_value|throw|time|title|try|type|undef|upper|values|var|vars|while)\b
-      scope: support.function
+      scope: variable.language.sc
     - match: \b(air|add_chunk_ticket|biome|blast_resistance|block|block_data|block_light|block_properties|block_sound|block_tick|blocks_daylight|blocks_movement|brightness|chunk_tickets|crafting_remaining_item|create_marker|current_dimension|custom_dimension|day_time|destroy|diamond|draw_shape|drop_item|emitted_light|entity_area|entity_event|entity_id|entity_list|entity_selector|escape_nbt|flammable|format|game_tick|generation_status|hardness|harvest|in_dimension|in_slime_chunk|inhabited_time|inventory_find|inventory_get|inventory_remove|inventory_set|inventory_size|item_category|last_tick_times|light|liquid|load_app_data|loaded|loaded_status|logger|map_colour|material|modify|nbt|neighbours|opacity|particle|particle_line|particle_rect|place_item|player|plop|poi|pos|pos_offset|power|property|query|random_tick|recipe_data|rect|reload_chunk|remove_all_markers|reset_chunk|run|save|scan|schedule|scoreboard|scoreboard_add|scoreboard_remove|scoreboard_display|see_sky|seed|set|set_biome|set_poi|set_structure|sky_light|solid|sound|spawn|spawn_potential|stack_limit|statistic|store_app_data|structures|structure_eligibility|structure_references|suffocates|tick_time|ticks_randomly|top|transparent|update|view_distance|volume|without_updates|world_time)\b
-      scope: support.function
+      scope: support.function.sc
     #function definition
-    - match: \b(\w+)\s*\(\s*(\w+)((?:\s*(,)\s(\w+))*)\s*\)\s*->
+    - match: \b(\w+)\s*\(\s*(?:(\w+)((?:\s*(,)\s*(\w+))*))?\s*\)\s*->
       captures:
         1: entity.name.function.sc
         2: variable.parameter.sc
