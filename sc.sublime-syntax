@@ -11,7 +11,7 @@ contexts:
     #constants
     - match: \b(null|true|false|pi|euler)\b
       scope: constant.language.sc
-    - match: \b_\w*\b
+    - match: \b_\w?\b
       scope: variable.language.sc
     #builtins
     - match: \b(abs|acos|acosh|acot|all|asin|asinh|atan|atan2|atanh|bool|break|call|ceil|c_for|continue|copy|cos|cosh|cot|coth|csc|csch|deg|delete|exit|fact|filter|first|floor|for|get|has|hash_code|if|import|join|keys|l|length|log|log10|log1p|loop|lower|m|mandelbrot|map|max|min|not|number|outer|pairs|perlin|print|profile_expr|put|rad|rand|range|reduce|relu|replace|replace_first|return|round|sec|sech|simplex|sin|sinh|sleep|slice|sort|sort_key|synchronize|system_variable_get|system_variable_set|split|sqrt|str|tan|tanh|task|task_completed|task_count|task_dock|task_join|task_thread|task_value|throw|time|title|try|type|undef|upper|values|var|vars|while)\b
@@ -72,7 +72,7 @@ contexts:
     - match: ">|>=|<=|<"
       scope: keyword.operator.logical.sc
     - match: ;
-      scope: punctuation.terminator.sc
+      push: semicolon
     - match: \,
       scope: punctuation.separator.sc
 
@@ -85,11 +85,13 @@ contexts:
       pop: true
 
   brackets:
+    - meta_scope: meta.parens
     - match: \)
       scope: punctuation.section.sc
       pop: true
     - include: main
   lists:
+    - meta_scope: meta.brackets
     - match: \]
       scope: punctuation.section.sc
       pop: true
@@ -97,7 +99,15 @@ contexts:
       scope: variable.parameter.sc
     - include: main
   maps:
+    - meta_scope: meta.braces
     - match: \}
       scope: punctuation.section.sc
       pop: true
     - include: main
+
+  semicolon:
+    - match: \)
+      scope: invalid.illegal.stray-semicolon
+      pop: true
+    - match: .(?=[^\s|\)])
+      pop: true
