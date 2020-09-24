@@ -72,6 +72,7 @@ contexts:
     - match: ">|>=|<=|<"
       scope: keyword.operator.logical.sc
     - match: ;
+      scope: punctuation.terminator.sc
       push: semicolon
     - match: \,
       scope: punctuation.separator.sc
