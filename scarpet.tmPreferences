@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "I don't even know if this is needed.">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Comments</string>
+  <key>scope</key>
+  <string>source.sc</string>
+  <key>settings</key>
+  <dict>
+    <key>shellVariables</key>
+    <array>
+      <dict>
+        <key>name</key>
+        <string>TM_COMMENT_START</string>
+        <key>value</key>
+        <string>// </string>
+      </dict>
+    </array>
+  </dict>
+  <key>uuid</key>
+  <string>47c1a67c-adc0-4839-b0ce-c2a4dcc4d0e8</string>
+</dict>
+</plist>
